@@ -63,7 +63,7 @@ class MavenPublishPluginIntegrationTest(
     val result = executeGradleCommands(uploadArchivesTargetTaskName, "--info")
 
     assertExpectedTasksRanSuccessfully(result)
-    assertThat(result.task(":dokka")?.outcome).isEqualTo(SUCCESS)
+    assertThat(result.task(":dokkaHtml")?.outcome).isEqualTo(SUCCESS)
     assertExpectedCommonArtifactsGenerated()
     assertPomContentMatches()
     assertSourceJarContainsFile("com/vanniktech/maven/publish/test/TestClass.kt", "src/main/java")
@@ -87,7 +87,7 @@ class MavenPublishPluginIntegrationTest(
     val result = executeGradleCommands(uploadArchivesTargetTaskName, "--info")
 
     assertExpectedTasksRanSuccessfully(result)
-    assertThat(result.task(":dokka")?.outcome).isEqualTo(SUCCESS)
+    assertThat(result.task(":dokkaHtml")?.outcome).isEqualTo(SUCCESS)
     assertExpectedCommonArtifactsGenerated()
     assertPomContentMatches()
     assertSourceJarContainsFile("com/vanniktech/maven/publish/test/TestClass.kt", "src/main/java")
@@ -125,7 +125,7 @@ class MavenPublishPluginIntegrationTest(
     val result = executeGradleCommands(uploadArchivesTargetTaskName, "--info")
 
     assertExpectedTasksRanSuccessfully(result)
-    assertThat(result.task(":dokka")?.outcome).isEqualTo(SUCCESS)
+    assertThat(result.task(":dokkaHtml")?.outcome).isEqualTo(SUCCESS)
     assertExpectedCommonArtifactsGenerated()
     assertPomContentMatches()
     assertSourceJarContainsFile("com/vanniktech/maven/publish/test/TestClass.kt", "src/main/java")
@@ -158,7 +158,7 @@ class MavenPublishPluginIntegrationTest(
     val result = executeGradleCommands(uploadArchivesTargetTaskName, "--info")
 
     assertExpectedTasksRanSuccessfully(result)
-    assertThat(result.task(":dokka")?.outcome).isEqualTo(SUCCESS)
+    assertThat(result.task(":dokkaHtml")?.outcome).isEqualTo(SUCCESS)
     assertExpectedCommonArtifactsGenerated(artifactExtension = "aar")
     assertPomContentMatches()
     assertSourceJarContainsFile("com/vanniktech/maven/publish/test/TestActivity.kt", "src/main/java")
@@ -171,7 +171,7 @@ class MavenPublishPluginIntegrationTest(
     val result = executeGradleCommands(uploadArchivesTargetTaskName, "--info", "--stacktrace")
 
     assertThat(result.task(":$uploadArchivesTargetTaskName")?.outcome).isEqualTo(SUCCESS)
-    assertThat(result.task(":dokka")?.outcome).isEqualTo(SUCCESS)
+    assertThat(result.task(":dokkaHtml")?.outcome).isEqualTo(SUCCESS)
 
     // the general coordinate does not have an actual artifact like a jar or klib
     // so we are checking the module file twice as a workaround

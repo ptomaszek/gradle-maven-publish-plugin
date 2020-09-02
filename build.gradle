@@ -3,7 +3,7 @@ buildscript {
   ext.junitVersion = '4.13'
   ext.assertjVersion = '3.15.0'
   ext.agpVersion = '3.6.0'
-  ext.dokkaVersion = '0.9.18'
+  ext.dokkaVersion = '1.4.0-rc'
   ext.retrofitVersion = '2.7.1'
   ext.moshiVersion = '1.9.3'
 
@@ -78,7 +78,7 @@ dependencies {
   api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
   compileOnly "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
-  compileOnly "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokkaVersion"
+  compileOnly "org.jetbrains.dokka:dokka-core:$dokkaVersion"
   compileOnly "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   compileOnly "com.android.tools.build:gradle:$agpVersion"
 
@@ -95,7 +95,6 @@ dependencies {
   testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
   testImplementation "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
   testImplementation "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
-  testImplementation "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokkaVersion"
 
   integrationTestImplementation gradleTestKit()
   integrationTestImplementation "junit:junit:$junitVersion"
