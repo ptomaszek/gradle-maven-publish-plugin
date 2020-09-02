@@ -19,6 +19,7 @@ task integrationTest(type: Test) {
   testClassesDirs = sourceSets.integrationTest.output.classesDirs
   classpath = sourceSets.integrationTest.runtimeClasspath
   mustRunAfter test
+  dependsOn pluginUnderTestMetadata
 
   testLogging {
     events "passed", "skipped", "failed"
