@@ -24,4 +24,10 @@ jobs:
           java-version: ${{ matrix.java_version }}
 
       - name: Build with Gradle
-        run: ./gradlew build --stacktrace
+        run: ./gradlew assemble signMavenPublishPluginPluginMarkerMavenPublication signPluginMavenPublication --stacktrace
+        env:
+          ORG_GRADLE_PROJECT_SIGNING_PRIVATE_KEY: ${{ secrets.SIGNING_PRIVATE_KEY }}
+          ORG_GRADLE_PROJECT_SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+
+      - name: output build
+        run: ls build/libs
